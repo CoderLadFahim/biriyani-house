@@ -18,8 +18,11 @@ Route::get('/', function () {
 });
 
 Route::get('/biriyanis', function () {
-    return view('biriyanis', [
-        'price' => 300,
-        'type' => 'Kacchi',
-    ]);
+    $biriyanis = [
+        ['name' => 'Kacchi', 'price' => 650, 'customer_review' => 'Very Good'],
+        ['name' => 'Chicken', 'price' => 450, 'customer_review' => 'Good'],
+        ['name' => 'Beef', 'price' => 550, 'customer_review' => 'Good'],
+    ];
+
+    return view('biriyanis', ['biriyanis' => $biriyanis]);
 });

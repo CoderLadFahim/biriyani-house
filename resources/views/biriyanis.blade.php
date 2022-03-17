@@ -20,19 +20,15 @@ font-family: 'Nunito', Arial;
 	 <body class="antialiased text-center">
 
 		<h1 class=" my-24 text-gray-700 text-4xl">Biriyanis</h1>
-		<p class=" text-gray-700">{{$price}}tk</p>
-		<p class=" text-gray-700">{{$type}}</p>
+			
+		<ul>
 
-		@if ($price > 550)
-			<p class="text-red-400 font-bold ">This biriyani is expensive</p>
-		@elseif ($price < 250)
-			<p class="text-green-400 font-bold ">This biriyani is cheap and affordable</p>
-		@else
-			<p class="text-blue-400 font-bold ">This biriyani is normally priced</p>
-		@endif
+			@foreach($biriyanis as $biriyani)
+				<li>
+					{{$loop->index + 1}}: {{ $biriyani['name'] }} - {{$biriyani['price']}} - {{$biriyani['customer_review']}}
+				</li>
+			@endforeach
+		</ul>
 
-		@unless ($type == 'Kacchi')
-			<p class="text-red-600 font-bold text-3xl">where kacchi</p>
-		@endunless
 	</body>
 </html>
